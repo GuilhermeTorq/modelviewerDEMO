@@ -1,0 +1,121 @@
+body {
+  background: #fff;
+  color: #333;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+model-viewer {
+  width: 100%;
+  height: 90vh;
+  background-color: #f5f5f5;
+}
+
+model-viewer::part(hotspot) {
+  z-index: 1000 !important;
+  pointer-events: auto;
+  mix-blend-mode: normal !important;
+}
+
+/* Style for the hotspot (button on model) */
+.Hotspot {
+  background-color: rgba(155, 229, 155, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative !important;
+  z-index: 10 !important;
+  opacity: 1;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.9); }
+  50% { box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.6); }
+  100% { box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.9); }
+}
+
+.Hotspot:hover {
+  transform: scale(1.1);
+  background: rgba(160, 240, 160, 1);
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+/* Optional floating text label above hotspot */
+.HotspotAnnotation {
+  position: absolute !important;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.Hotspot:hover .HotspotAnnotation {
+  opacity: 1;
+}
+
+
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  background: rgb(144, 220, 144);
+  border: 0px solid;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 550;
+  font-size: 16px;
+}
+
+.controls button:hover {
+  background: rgb(160, 240, 160);
+  transform: translateY(-2px);
+}
+
+/* Progress Bar */
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(0,0,0,0.1);
+  z-index: 2000;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  transition: width 0.2s ease;
+}

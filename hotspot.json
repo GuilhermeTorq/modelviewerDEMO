@@ -1,0 +1,25 @@
+{
+  "models": {
+    "Z7z": {
+      "file": "Z7z.glb",
+      "displayName": "Z7z Bed",
+      "hotspots": [
+        {
+          "label": "Headboard",
+          "surface": "912 0 1735 1614 1616 0.476 0.409 0.115",
+          "animation": "Action"
+        },
+        {
+          "label": "Nurse Controller",
+          "surface": "884 0 267 358 360 0.498 0.166 0.336",
+          "animation": "Action.001"
+        }
+      ]
+    },
+    "headboard": {
+      "file": "headboard.glb",
+      "displayName": "Headboard",
+      "hotspots": []
+    }
+  }
+}
